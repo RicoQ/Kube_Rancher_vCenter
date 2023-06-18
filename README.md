@@ -8,7 +8,7 @@
     <img src="./Ansible/.ansible.png" alt="Ansible logo" title="Ansible" align="center" height="80" /> 
 </c>
 
-# A Small Kubernetes Cluster (k3s - 1 nodes) created withe Rancher (Made with IaC in mind)
+# A Small Kubernetes Cluster (k3s - 1 nodes) created with Rancher (Made with IaC in mind)
 
 This project is my personal play ground for using IaC in order to populate my HomeLab. Testing and Learning in the Process. I use a VMware vSphere Hypervisor (ESXi) 7.0U3g standard edition and a Debian WLS on my PC. 
 
@@ -17,7 +17,7 @@ This project is my personal play ground for using IaC in order to populate my Ho
 
 - A vCenter server is needed as some features for Terraform and Packer are not supported on a standalone ESXi. (i.e: Template cloning and ovf manipulations) I was having a lot of trouble without the vcenter providers.
 
-- I need to start working with Vault (ansible and terraform). at the moment all my Passwords and sensible data are in plain text in a '.tfvar' and '.pkrvar.hcl', I've added this files to the .gitignore to keep them secured to my pc only... but I really need to get familiar and use the vaults. So those tools are soon to come.
+- I need to start working with Vault (ansible and terraform). At the moment all my Passwords and sensible data are in plain text in a '.tfvar' and '.pkrvar.hcl', I've added this files to the .gitignore to keep them secured to my pc only... but I really need to get familiar and use the vaults. So those tools are soon to come.
 
 #
 ## What this Project does:
@@ -105,9 +105,9 @@ https://stackoverflow.com/questions/42462435/ansible-provisioning-error-using-a-
 --> vsphere-iso.build_image: Rancher-Base-Debian
 ```
 
-- Whatever VM config you decide to have for you final VM (after the Terraform apply). You'll  needs to replicated for the "Packer" build... I run into trouble when my "Base" image had only 2 vCPU and I try to create a VM with 4vCPU with the "clone api", I don't know why, but it only works when everythong is the same, so i recommand to keeping the valus as seen below... 
+- Whatever VM config you decide to have for you final VM (after the Terraform apply). You'll  needs to replicated for the "Packer" build... I ran into trouble when my "Base" image had only 2 vCPU and I tried to create a VM with 4vCPU with the "clone api", I don't know why, but it only works when everything is the same, so i recommand to keeping the values as seen below... 
 
-***Defaults VM Config:***
+***Defaults VM Config: (both are the same)***
 - CPU = 4
 - RAM = 4Go 
 - HDD = 40Go
@@ -121,7 +121,7 @@ https://stackoverflow.com/questions/42462435/ansible-provisioning-error-using-a-
     - "inputs" to get all the needed data to create the config files (with ansible templating and Jinga2).
     - A button "Create" that will run all the steps from A to Z.
     - A button "Get temporary Password from Rancher" 
-    - A button "Connect" to launch a bownser and connect to the Rancher web interface.
+    - A button "Connect" to launch a browser and connect to the Rancher web interface.
 - A Second small python Script to create any VM. (It is already possible by replicating one of the modules and changing a few things in the Deploy.tf, but you have to know what you are doing to make it work, this second script will make it easyer for those who don't know how :-)
 
 ## Accessing Rancher Web Interface
@@ -134,7 +134,7 @@ https://stackoverflow.com/questions/42462435/ansible-provisioning-error-using-a-
 docker logs <container-id>  2>&1 | grep "Bootstrap password:"
 ```
 
-- Change the password to whatyou want and "Voilà" it is done!
+- Change the password to what you want and "Voilà" it is done!
 
 
 ## Contributing
