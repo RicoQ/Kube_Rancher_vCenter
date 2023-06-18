@@ -1,0 +1,8 @@
+.terraform*
+*.new
+*.old
+*.tfstate
+*.backup
+*.exe
+Archive
+*-secrets.tfvars

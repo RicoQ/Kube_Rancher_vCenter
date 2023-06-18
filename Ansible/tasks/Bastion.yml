@@ -1,0 +1,20 @@
+#############################
+# Bastion Utilities Install 
+#############################
+
+- name: Run Setup.sh Script
+  command:
+    argv: 
+      - ./Scripts/Setup/Setup.sh
+      - -I
+      - -U
+  become_user: "{{ USER }}"
+  register: setup_stdout
+
+- name: debug
+  debug:
+    msg: "{{ setup_stdout.stdout.split('\n') }}"
+
+- name: Unconditionally reboot the machine with all defaults
+  reboot:
+ 

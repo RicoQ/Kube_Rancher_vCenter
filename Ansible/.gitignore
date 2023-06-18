@@ -1,0 +1,7 @@
+./Archive
+*.old
+*.key
+*.crt
+*.rb
+*_secrets.yml
+./hosts

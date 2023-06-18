@@ -1,0 +1,10 @@
+*.old
+*.new
+*.test
+images
+iso
+*_passwd.pkrvar.hcl
+*_secrets.pkrvar.hcl
+Archive
+output-build_image
+preseed.cfg

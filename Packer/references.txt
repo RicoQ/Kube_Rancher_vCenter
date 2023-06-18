@@ -1,0 +1,26 @@
+##################################################################################
+# General Ref: 
+#    https://www.packer.io/plugins/builders/vmware/iso
+#    https://developer.hashicorp.com/packer/plugins/builders/vsphere/vsphere-iso
+#    https://github.com/hashicorp/packer-plugin-vsphere/blob/main/builder/vsphere/examples/ubuntu/ubuntu-16.04.pkr.hcl
+#
+# Shutdown Command Ref: 
+#    https://github.com/hashicorp/packer/issues/4813 
+#    https://developer.hashicorp.com/packer/docs/provisioners/shell
+#
+# Guest OS Type Ref:
+#    https://developer.vmware.com/apis/358/vsphere/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html
+#
+# Boot commands Ref:
+#    https://www.debian.org/releases/jessie/amd64/ch05s03.html.en 
+#    https://github.com/tylert/packer-build/tree/master/source 
+#    Sequence to enter the automated setup (requires a preseed.cfg file)
+#
+# Build Block Ref:
+#    https://developer.hashicorp.com/packer/docs/templates/hcl_templates/contextual-variables
+#    https://developer.hashicorp.com/packer/docs/templates/hcl_templates/blocks/build
+#
+# Shell Provisioner Ref: 
+#    https://developer.hashicorp.com/packer/docs/provisioners/shell
+#
+##################################################################################

@@ -1,0 +1,20 @@
+---
+- name: Ansible Main Playbook
+  hosts: all
+  gather_facts: no
+  become: yes
+  vars: 
+    user: "{{ USER }}"
+
+  tasks:
+    - name: New Install
+      include_tasks: ../tasks/New_Install.yml
+      tags: 
+        - New_Install
+      when: (PACKER is defined) and (PACKER == "ACTIVE")
+
+    - name: "{{ SERVICE }} Install"
+      include_tasks: "../tasks/{{ SERVICE }}.yml"
+      tags:
+        - "{{ SERVICE }}"
+      when: (TERRA is defined) and (TERRA == "ACTIVE") and (SERVICE is defined)

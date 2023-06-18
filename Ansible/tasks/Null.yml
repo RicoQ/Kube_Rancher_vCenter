@@ -1,0 +1,16 @@
+ #############################
+    # Init / Prepare SSH
+    #############################
+
+- name: Config sshd
+  blockinfile:
+    path: /etc/ssh/sshd_config
+    block: |
+      Match User git
+      Banner none
+
+- name: Restart ssh
+  service:
+    name: ssh
+    state: restarted
+  become: yes

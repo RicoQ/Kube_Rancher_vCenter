@@ -1,0 +1,42 @@
+  #############################
+  # Prepare & Installs Docker
+  #############################
+
+- name: Install Docker
+  shell: "curl https://releases.rancher.com/install-docker/20.10.sh | sh -s -- -y"
+    #stdin: "docker_install.content"
+  become_user: "{{ USER }}"
+  register: docker_stdout
+
+- name: debug
+  debug:
+    msg: "{{ docker_stdout.stdout.split('\n') }}"
+
+  #############################
+  # Add User to the Docker group
+  #############################
+
+- name: Add user to docker group and switch group
+  become: true
+  user:
+    name: "{{ USER }}"
+    groups: docker
+    append: yes
+
+- name: Reset ssh connection
+  meta:
+    reset_connection
+
+  #############################
+  # Install the Rancher Container 
+  #############################
+
+- name: Install the Rancher Container (k3s)
+  shell:
+    cmd: docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest
+  become_user: "{{ USER }}"
+  register: rancher_stdout
+
+- name: debug
+  debug:
+    msg: "{{ rancher_stdout.stdout.split('\n') }}"

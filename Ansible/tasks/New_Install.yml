@@ -1,0 +1,52 @@
+#############################
+# Basic Initialization
+#############################
+
+- name: Update && Upgrade all packages
+  apt:
+    upgrade: "yes"
+    update_cache: yes
+    dpkg_options: "force-confold,force-confdef"
+  become: yes
+
+#############################
+# Basic Packages 
+#############################
+  
+- name: "Install basic packages" 
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - aptitude
+    - cloud-init
+    - curl
+
+- name: Copy Scripts
+  copy:
+    src: ../files/Scripts/
+    dest: ~/
+    backup: yes
+  become_user: "{{ USER }}"
+
+- name: Make Setup.sh executable
+  command: chmod +x ~/Setup.sh 
+  become_user: "{{ USER }}"
+
+- name: Run Setup.sh Script
+  command:
+    argv: 
+      - ./Setup.sh
+      - -u
+      - -I
+  become_user: "{{ USER }}"
+  register: setup_stdout
+
+- name: debug
+  debug:
+    msg: "{{ setup_stdout.stdout.split('\n') }}"
+
+- name: Unconditionally reboot the machine with all defaults
+  reboot:
+ 
