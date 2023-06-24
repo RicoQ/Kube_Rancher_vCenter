@@ -50,6 +50,23 @@ variable "vm_name" {
   description = " "
   type = string
 }
+### VM Info 
+variable "vcpu" {
+  description = "The the number of vcpus assigned to the vm"
+  type = number
+}
+variable "core" {
+  description = "Number of core assigned for the vcpu. (example: if you have 4 vcpu you can have 1, 2 or 4 cores. (i.e: 1 core = (4 vcpus x 1 core), 2 cores = (2 vcpus x 2 cores), 4 cores = (1vcpu x 4 cores)))"
+  type = number
+}
+variable "ram" {
+  description = "Amount of RAM assigned to the VM (in Mo  4096Mo = 4Go)"
+  type = number
+}
+variable "disk_size" {
+  description = "The sise of the vm's disk in Go (example 40 = 40Go)"
+  type = number
+}
 variable "vm_info" {
   type = list(object({
     hostname = string
@@ -62,10 +79,6 @@ variable "ovf_name" {
 variable "networks" {
   description = "Name of the network"
   type        = string
-}
-variable "disk_size" {
-  description = " "
-  type = number
 }
 
 ## VM SSH Info

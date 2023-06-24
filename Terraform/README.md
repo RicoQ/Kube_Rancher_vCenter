@@ -9,16 +9,23 @@ https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs
 
 ## Requirements
 
-* [Terraform 0.12+][terraform-install]
+* [Terraform 1.0+](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-* [VMware vSphere][vmware-vsphere-documenation] 6.5 or later.
+* [VMware vSphere 6.5+](https://customerconnect.vmware.com/downloads/details?downloadGroup=VC65U3U&productId=614&rPId=102857)
+
+* [Ansible 12.0+](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+* [Vault](https://www.vaultproject.io/)
     
 >**NOTE**: 
 - The terraform provider for vSphere requires API write access and is therefore **not supported** for use with a free VMware vSphere Hypervisor license.
 
 - A vCenter server is needed as some features for Terraform and Packer are not supported on a standalone ESXi. (i.e: Template cloning and ovf manipulations) I was having a lot of erros so I desided to try the vcenter providers instead and it made it a lot easier no more errors.
 
-- I need to start working with Vault (ansible and terraform). at the moment all my Passwords and sensible data are in plain text in a '.tfvar' and '.pkrvar.hcl', I've added this files to the .gitignore to keep them secured to my pc only... but I really need to get familiar and use the vaults. So those tools are soon to come.
+- ~~I need to start working with Vault (ansible and terraform). at the moment all my Passwords and sensible data are in plain text in a '.tfvar' and '.pkrvar.hcl', I've added this files to the .gitignore to keep them secured to my pc only... but I really need to get familiar and use the vaults. So those tools are soon to come.~~
+
+- I started using vault... however I'm having touble with the dinamyc setup... so for now I use a .tfvars file. see [Sample.tfvars](./Var_Files/Sample.tfvars). 
+
 
 ## Using the Provider
 

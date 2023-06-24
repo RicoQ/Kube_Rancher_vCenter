@@ -15,9 +15,9 @@ resource "vsphere_virtual_machine" "vm" {
   #folder   = vsphere_folder.folder.path
   
   # VM Info
-  num_cpus = 4
-  num_cores_per_socket = 4
-  memory   = 4096
+  num_cpus = var.vcpu
+  num_cores_per_socket = var.core
+  memory   = var.ram
   guest_id = "debian11_64Guest"
   firmware = "bios"
   scsi_type = "lsilogic-sas"

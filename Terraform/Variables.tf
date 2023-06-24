@@ -1,80 +1,44 @@
-### Global Info
-# variable root_path
-variable "esxi_host" {
-  description = "Value of the ip/url for the vsphere server"
+# Vault Info
+variable "vault_url" {
+  description = "The Vault's URL"
   type        = string
 }
-variable "vm_path" {
-  description = "Directory where the vm is to be created. (is relative to the datastore)"
-  type        = string
-  default     = "/VM"
-}
-# variable library
-
-
-## vCenter Info ##
-variable "vc_host" {
-  description = "Value of the ip/url for the vCenter server"
+variable "vault_token" {
+  description = "The Vault's access token"
   type        = string
 }
-variable "vc_user" {
-  description = "Value of the user name for the vCenter"
+variable "vcenter_path" {
+  description = "The path within the Vault where the vCenter secrets are stored."
   type        = string
 }
-variable "vc_pwd" {
-  description = "Value of the user password for the vCenter"
+variable "esxi_path" {
+  description = "The path within the Vault where the esxi secrets are stored."
   type        = string
 }
-variable "vc_datacenter" {
-  description = "Value of the datacenter name on the vCenter"
+variable "ssh_path" {
+  description = "The path within the Vault where the ssh secrets are stored."
   type        = string
 }
-#variable "vc_cluster" {
-#  description = "Value of the cluster name. Used only with vCenter. If ESXi is standalone with no cluster use <esxi_host>"
-#  type        = string
-#}
-variable "vc_datastore" {
-  description = "Value of the datastore name"
+variable "ftp_path" {
+  description = "The path within the Vault where the ftp secrets are stored."
   type        = string
 }
 
-
-## ESXI Info ##
-variable "resource_pool" {
-  description = "Value of the resource pool name"
-  type        = string
-  default     = "Resources"
-}
 
 ### VM Info 
-# Global
-variable "disk_size" {
-  description = " "
+variable "vcpu" {
+  description = "The the number of vcpus assigned to the vm"
   type = number
 }
-
-# NetWork
-variable "networks" {
-  description = "Name of the network"
-  type        = string
-  default     = "VM Network"
+variable "core" {
+  description = "Number of core assigned for the vcpu. (example: if you have 4 vcpu you can have 1, 2 or 4 cores. (i.e: 1 core = (4 vcpus x 1 core), 2 cores = (2 vcpus x 2 cores), 4 cores = (1vcpu x 4 cores)))"
+  type = number
 }
-
-## VM SSH Info
-variable "ssh_comm" {
-  description = "communicator used to connect to the vm "
-  type        = string
-  default     = "ssh"
+variable "ram" {
+  description = "Amount of RAM assigned to the VM (in Mo  4096Mo = 4Go)"
+  type = number
 }
-variable "bastion_ssh_pwd" {
-  description = "value"
-  type = string
+variable "disk_size" {
+  description = "The sise of the vm's disk in Go (example 40 = 40Go)"
+  type = number
 }
-variable "rancher_ssh_pwd" {
-  description = "value"
-  type = string
-}
-#variable "ssh_root_pwd" {
-#  description = "A plaintext password to use to for the user root"
-#  type    = string
-#}

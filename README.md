@@ -46,30 +46,26 @@ Other Tools To be Added:
 
 ## Requirements
 
-* [Terraform 1.0+] 
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+* [Terraform 1.0+](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-* [VMware vSphere 6.5+] 
-https://customerconnect.vmware.com/downloads/details?downloadGroup=ESXI65U3A&productId=614&rPId=102857
+* [VMware vSphere 6.5+](https://customerconnect.vmware.com/downloads/details?downloadGroup=ESXI65U3A&productId=614&rPId=102857)
 
-* [VMware vCenter 6.5+] 
-https://customerconnect.vmware.com/downloads/details?downloadGroup=VC65U3U&productId=614&rPId=102857
+* [VMware vCenter 6.5+](https://customerconnect.vmware.com/downloads/details?downloadGroup=VC65U3U&productId=614&rPId=102857)
 
-* [Ansible 12.0+]
-https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+* [Ansible 12.0+](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-* [Packer 1.8+]
-https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
+* [Packer 1.8+](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli)
 
-* [ovftools 4.3+]
-https://docs.vmware.com/en/VMware-Telco-Cloud-Operations/1.4.0/deployment-guide-140/GUID-95301A42-F6F6-4BA9-B3A0-A86A268754B6.html
+* [ovftools 4.3+](https://docs.vmware.com/en/VMware-Telco-Cloud-Operations/1.4.0/deployment-guide-140/GUID-95301A42-F6F6-4BA9-B3A0-A86A268754B6.html)
 
-* [Enable Remote support for Packer]
-https://developer.hashicorp.com/packer/plugins/builders/vmware/iso#building-on-a-remote-vsphere-hypervisor
+* [Enable Remote support for Packer](https://developer.hashicorp.com/packer/plugins/builders/vmware/iso#building-on-a-remote-vsphere-hypervisor)
+
+* [vault](https://www.vaultproject.io/)
+
+* You need a vault sever already up en running. As a note I have it installed on my ftp. Anyway, I started using it, but I'm still having a litte touble with the "Dynamic Secrets", something is not quite right on my system... So, for now, I have a few variables in a .tfvars and .pkrvars.hcl files. Until I get the [Vault Dynamic Secrets](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-dynamic-secrets) to work properly, the below requirement is still true.  
 
 * [Install sshpass and add 'export ANSIBLE_HOST_KEY_CHECKING=False' to your .bashrc] 
- ** This is a workaround - Until I start using Vaults. (Important note= This is very insecure it is ok for my HomeLab but it should never be used in a real production environement) 
-https://stackoverflow.com/questions/42462435/ansible-provisioning-error-using-a-ssh-password-instead-of-a-key-is-not-possibl
+ ** This is a workaround - ~~Until I start using Vaults~~. (Important note= This is very insecure it is ok for a HomeLab, but it should never be used in a real production environement [see this ref](https://stackoverflow.com/questions/42462435/ansible-provisioning-error-using-a-ssh-password-instead-of-a-key-is-not-possibl) )
 
 ## Configurations: 
 ### (This section needs to be completed)
@@ -145,5 +141,4 @@ docker logs <container-id>  2>&1 | grep "Bootstrap password:"
 
 ## License
 
-* [VMware vSphere 7 Standard] 
-https://store-fr.vmware.com/vmware-vsphere-standard-5655042100.html
+* [VMware vSphere 7 Standard](https://store-fr.vmware.com/vmware-vsphere-standard-5655042100.html)
