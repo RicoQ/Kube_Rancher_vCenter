@@ -10,7 +10,7 @@
 
 # A Small Kubernetes Cluster (k3s - 1 nodes) created with Rancher (Made with IaC in mind)
 
-This project is my personal play ground for using IaC in order to populate my HomeLab. Testing and Learning in the Process. I use a VMware vSphere Hypervisor (ESXi) 7.0U3g standard edition and a Debian WLS on my PC. 
+This project is my personal play ground for using IaC in order to populate my HomeLab. Testing and Learning in the Process. I use a VMware vSphere Hypervisor (ESXi) 7.0U3g standard edition and a Debian WSL on my PC. 
 
 **NOTE**: 
 - The terraform provider for vSphere requires API write access and is therefore **not supported** for use with a free VMware vSphere Hypervisor license.
