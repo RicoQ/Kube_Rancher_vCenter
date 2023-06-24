@@ -23,7 +23,7 @@ This project is my personal play ground for using IaC in order to populate my Ho
 ## What this Project does:
 The project does 3 things automatically. 
 - Creates 2 Base Images using Packer: 
-    - Bqstion-Debian 
+    - Bastion-Debian 
     - Rancher-Debian
 - Install the required pakages needed using Ansible:
     - On Both servers A few small personal scripts for my use, it adds a few aliases in the user's .bashrc file as well as a few "admin sys'" utilitises such as ncdu, net-tools, ltrace, git, screen, etc... (see [Setup.sh](./Ansible/files/Scripts/Setup.sh) and [New_Install.sh](./Ansible/files/Scripts/New_Install.sh) for more details) 
