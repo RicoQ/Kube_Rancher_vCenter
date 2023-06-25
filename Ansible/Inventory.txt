@@ -3,9 +3,3 @@ ansible_ssh_common_args = '-o StrictHostKeyChecking=no'
 
 #Terraform Generated hosts
 [Terraform]
-Rancher ansible_host= 192.168.10.102 ansible_user=rancher ansible_password=rancher!01
-Bastion ansible_host=192.168.10.111 ansible_user=superadmin ansible_password=1609@1980
-rancher ansible_host=192.168.10.110 ansible_user=rancher ansible_password=rancher!01
-Bastion ansible_host=192.168.10.112 ansible_user=superadmin ansible_password=1609@1980
-Rancher ansible_host=192.168.10.113 ansible_user=rancher ansible_password=rancher!01
-Bastion ansible_host=192.168.10.114 ansible_user=superadmin ansible_password=1609@1980
